@@ -1,0 +1,16 @@
+galaxy_info:
+  author: Guillaume St-Michel
+  namespace: gstmichel
+  role_name: security
+  description: 5 min security
+  company: 8902828 Canada Inc.
+  license: MIT
+  min_ansible_version: "2.1"
+  platforms:
+    - name: Debian
+      versions:
+        - bullseye
+  galaxy_tags:
+    - security
+
+dependencies: []
