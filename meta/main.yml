@@ -1,7 +1,7 @@
 galaxy_info:
   author: Guillaume St-Michel
   namespace: gstmichel
-  role_name: security
+  role_name: first_5min_security
   description: 5 min security
   company: 8902828 Canada Inc.
   license: MIT

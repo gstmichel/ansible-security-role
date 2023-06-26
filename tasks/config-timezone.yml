@@ -1,0 +1,5 @@
+---
+- name: config-timezone | UTC Timezone
+  community.general.timezone:
+    hwclock: UTC
+    name: Etc/UTC

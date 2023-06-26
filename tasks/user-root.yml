@@ -1,0 +1,6 @@
+---
+- name: user-root | Remove Login Shell
+  ansible.builtin.user:
+    name: root
+    # shell: /sbin/nologin
+    umask: 0027

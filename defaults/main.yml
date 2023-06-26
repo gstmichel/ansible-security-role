@@ -2,3 +2,14 @@
 # defaults file for security
 
 # root_password:
+automation_user: automation
+automation_user_password: "{{ 'temp' | password_hash('sha512', 'randomsalt') }}"
+automation_user_public_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQv0n6Z6ROpReILnl4bU9q6MufHJW91AVcYDuxtu3B8FFR9Yr74Sfr7vvje9rotnTOdyUXL4BtbKc392jvjANbpaD/gVzGIRc70+Hb9HaBdeZnRVrhvydpucjzwHylnO7Xhvef/V/MgQMD8DMwETj4kMy9A67ooHgwY2HuRT8xTGO8RG1mXjTug9yF+STQBPQ+QDvK8nE49SWTLjosWSZgihohcmRyxn9+0T5PR1ejCKMDLxIaUSfBzMi02w2cWrHaTyLkLi20v+hCAvbEIUBAIsEOKdZ2nygcyiepknsMoGuzXoHKO859pfxXm/IeyREXexwdtAnCEM+LBbUgCSpO8F2Ou91fWGpWGmSr3DPWgewfe+Bwsh/1CadJpyNVHaG/OIMfQdIQj5/R3aVax53A6n0rKiwajKWuvUnjujHMzQ5vIZ0U1MF+5K9mH6qEHss6S88nCtRJRxWYw8u2H0lGvlQVxS/R2OQlgCqjAdY443osaLgiXE2z2RvRjNK+vtM= guillaume.stmichel@gmail.com
+
+# ntp
+ntp_config_file: /etc/ntp.conf
+ntp_servers:
+  - 0.pool.ntp.org
+  - 1.pool.ntp.org
+  - 2.pool.ntp.org
+  - 3.pool.ntp.org

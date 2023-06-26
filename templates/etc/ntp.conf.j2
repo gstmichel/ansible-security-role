@@ -1,0 +1,7 @@
+{{ ansible_managed | comment }}
+
+driftfile /var/lib/ntp/ntp.drift
+
+{% for item in ntp_servers %}
+server {{ item }}
+{% endfor %}

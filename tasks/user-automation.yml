@@ -1,0 +1,25 @@
+---
+- name: user-automation | Install Sudo
+  ansible.builtin.apt:
+    name: sudo
+
+- name: user-automation | Create Automation User
+  ansible.builtin.user:
+    name: "{{ automation_user }}"
+    shell: /bin/bash
+
+- name: user-automation | Set authorized key defining key options
+  ansible.posix.authorized_key:
+    user: "{{ automation_user }}"
+    state: present
+    key: "{{ automation_user_public_key }}"
+
+- name: user-automation | Allow passwordless sudo
+  community.general.sudoers:
+    name: automation
+    state: present
+    user: "{{ automation_user }}"
+    nopassword: true
+    runas: ALL
+    commands: ALL
+    validation: required

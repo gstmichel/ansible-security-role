@@ -1,0 +1,15 @@
+---
+- name: system-update | Upgrade
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: true
+
+- name: system-update | Install unattended-upgrades
+  ansible.builtin.apt:
+    name: unattended-upgrades
+
+- name: system-update | Configure unattended-upgrades
+  ansible.builtin.copy:
+    src: etc/apt/apt.conf.d/10periodic
+    dest: /etc/apt/apt.conf.d/10periodic
+    mode: 0644

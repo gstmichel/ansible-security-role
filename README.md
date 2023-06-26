@@ -8,9 +8,21 @@ N/A
 
 ## Role Variables
 
-| Name              | Default | Description       |
-| ----------------- | ------- | ----------------- |
-| new_root_password | `empty` | new root password |
+| Name              | Default | type       | Description            |
+| ----------------- | ------- | ---------- | ---------------------- |
+| new_root_password | `empty` | string     | new root password      |
+| users             | `empty` | list(user) | List of user to create |
+
+### User Structure
+
+| Name         | Default | type   | description                   |
+| ------------ | ------- | ------ | ----------------------------- |
+| **name**     | `empty` | string | Username                      |
+| **password** | `empty` | string | Password Hash for this user\* |
+
+**mandatory**
+
+Note \*: See https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#how-do-i-generate-encrypted-passwords-for-the-user-module
 
 ## Dependencies
 

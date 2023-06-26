@@ -1,18 +1,21 @@
 ---
-# tasks file for security
+- name: System Update
+  ansible.builtin.import_tasks: system-update.yml
 
-- name: Secure SSH
-  ansible.builtin.lineinfile:
-    dest: /etc/ssh/sshd_config
-    regexp: "{{ item.regexp }}"
-    line: "{{ item.line }}"
-    state: present
-    validate: sshd -T -f %s
-  with_items:
-    - regexp: "^PasswordAuthentication"
-      line: "PasswordAuthentication no"
-    - regexp: "^PermitRootLogin"
-      line: "PermitRootLogin no"
-    - regexp: "^Port"
-      line: "Port 2830"
-  notify: restart ssh
+- name: NTP configuration
+  ansible.builtin.import_tasks: config-ntp.yml
+
+- name: TimeZone Configuration
+  ansible.builtin.import_tasks: config-timezone.yml
+
+- name: Firewall Configuration
+  ansible.builtin.import_tasks: config-firewall.yml
+
+- name: SSHD Configuration
+  ansible.builtin.import_tasks: config-sshd.yml
+
+- name: Automation Account
+  ansible.builtin.import_tasks: user-automation.yml
+
+- name: Root Account
+  ansible.builtin.import_tasks: user-root.yml

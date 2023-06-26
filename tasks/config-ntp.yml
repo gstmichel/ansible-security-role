@@ -1,0 +1,10 @@
+---
+- name: config-ntp | Basic Packages
+  ansible.builtin.apt:
+    name: ntp
+
+- name: config-ntp | NTP conf file.
+  ansible.builtin.template:
+    src: etc/ntp.conf.j2
+    dest: /etc/ntp.conf
+    mode: 0644
